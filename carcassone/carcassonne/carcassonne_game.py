@@ -40,3 +40,7 @@ class CarcassonneGame:
 
     def get_possible_actions(self) -> [Action]:
         return ActionUtil.get_possible_actions(self.state)
+
+    def close(self):
+        """Close the visualiser."""
+        self.visualiser.close()

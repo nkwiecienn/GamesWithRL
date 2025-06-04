@@ -2,18 +2,24 @@
 # https://flothesof.github.io/2048-game.html
 # https://github.com/qwert12500/2048_rl
 
+import numpy as np
 from numpy import zeros, array, rot90
 import random
+import gymnasium as gym
 
-class Board2048():
+class Board2048(gym.Env):
     def __init__(self):
+        super(Board2048, self).__init__()
+        self.action_space = gym.spaces.Discrete(4)
+        self.observation_space = gym.spaces.Box(low=0, high=2048, shape=(4, 4), dtype=np.int32)
         self.board = zeros((4, 4), dtype=int)
         self.fill_cell()
         self.game_over = False
         self.total_score = 0
 
-    def reset(self):
+    def reset(self, seed=None, options=None):
         self.__init__()
+        return self.board, {}
 
     # Adding a random 2/4 into the board
     def fill_cell(self):
@@ -65,7 +71,16 @@ class Board2048():
 
 
     def step(self, direction):
+      prev_score = self.total_score
       new_board = self.move(direction)
-      if not (new_board == self.board).all():
+      if self.is_game_over():
+        reward = -100
+        return self.board, reward, True, False, {}
+      elif (new_board == self.board).all():
+        reward = -10
+      else:
         self.board = new_board
         self.fill_cell()
+        reward = self.total_score - prev_score
+        
+      return self.board, reward, self.is_game_over(), False, {}

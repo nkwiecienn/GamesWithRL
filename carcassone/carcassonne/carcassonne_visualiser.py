@@ -45,8 +45,8 @@ class CarcassonneVisualiser:
     }
 
     def __init__(self):
-        root = Tk()
-        self.canvas = Canvas(root, width=2300, height=1300, bg='white')
+        self.root = Tk()
+        self.canvas = Canvas(self.root, width=2300, height=1300, bg='white')
         self.canvas.pack(fill='both', expand=True)
         self.images_path = os.path.join(carcassone.__path__[0], 'carcassonne', 'resources', 'images')
         self.meeple_image_refs = {}
@@ -114,7 +114,7 @@ class CarcassonneVisualiser:
             photo_image = self.tile_image_refs[reference]
         else:
             abs_file_path = os.path.join(self.images_path, image_filename)
-            image = Image.open(abs_file_path).resize((self.tile_size, self.tile_size), Image.ANTIALIAS).rotate(
+            image = Image.open(abs_file_path).resize((self.tile_size, self.tile_size), Image.Resampling.LANCZOS).rotate(
                 -90 * tile.turns)
             image = self.__flattenAlpha(image)
             height = image.height
@@ -141,19 +141,19 @@ class CarcassonneVisualiser:
 
         photo_image = None
         if meeple_type == MeepleType.NORMAL or meeple_type == MeepleType.ABBOT:
-            image = Image.open(abs_file_path).resize((self.meeple_size, self.meeple_size), Image.ANTIALIAS)
+            image = Image.open(abs_file_path).resize((self.meeple_size, self.meeple_size), Image.Resampling.LANCZOS)
             image = self.__flattenAlpha(image)
             photo_image = ImageTk.PhotoImage(image)
         elif meeple_type == MeepleType.BIG:
-            image = Image.open(abs_file_path).resize((self.big_meeple_size, self.big_meeple_size), Image.ANTIALIAS)
+            image = Image.open(abs_file_path).resize((self.big_meeple_size, self.big_meeple_size), Image.Resampling.LANCZOS)
             image = self.__flattenAlpha(image)
             photo_image = ImageTk.PhotoImage(image)
         elif meeple_type == MeepleType.FARMER:
-            image = Image.open(abs_file_path).resize((self.meeple_size, self.meeple_size), Image.ANTIALIAS).rotate(-90)
+            image = Image.open(abs_file_path).resize((self.meeple_size, self.meeple_size), Image.Resampling.LANCZOS).rotate(-90)
             image = self.__flattenAlpha(image)
             photo_image = ImageTk.PhotoImage(image)
         elif meeple_type == MeepleType.BIG_FARMER:
-            image = Image.open(abs_file_path).resize((self.big_meeple_size, self.big_meeple_size), Image.ANTIALIAS).rotate(-90)
+            image = Image.open(abs_file_path).resize((self.big_meeple_size, self.big_meeple_size), Image.Resampling.LANCZOS).rotate(-90)
             image = self.__flattenAlpha(image)
             photo_image = ImageTk.PhotoImage(image)
         else:
