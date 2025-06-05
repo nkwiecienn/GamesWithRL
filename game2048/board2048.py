@@ -11,15 +11,25 @@ class Board2048(gym.Env):
     def __init__(self):
         super(Board2048, self).__init__()
         self.action_space = gym.spaces.Discrete(4)
-        self.observation_space = gym.spaces.Box(low=0, high=2048, shape=(4, 4), dtype=np.int32)
+        self.observation_space = gym.spaces.Box(low=0, high=1, shape=(4, 4, 16), dtype=np.uint8)
         self.board = zeros((4, 4), dtype=int)
         self.fill_cell()
         self.game_over = False
         self.total_score = 0
+      
+    def get_obs(self):
+      obs = zeros((4, 4, 16), dtype=int)
+      for i in range(4):
+        for j in range(4):
+          value = self.board[i, j]
+          if value > 0:
+            power = int(np.log2(value))
+            obs[i, j, power] = 1
+      return obs
 
     def reset(self, seed=None, options=None):
         self.__init__()
-        return self.board, {}
+        return self.get_obs(), {}
 
     # Adding a random 2/4 into the board
     def fill_cell(self):
@@ -74,13 +84,13 @@ class Board2048(gym.Env):
       prev_score = self.total_score
       new_board = self.move(direction)
       if self.is_game_over():
-        reward = -100
+        reward = -10
         return self.board, reward, True, False, {}
       elif (new_board == self.board).all():
-        reward = -10
+        reward = -1
       else:
         self.board = new_board
         self.fill_cell()
         reward = self.total_score - prev_score
         
-      return self.board, reward, self.is_game_over(), False, {}
+      return self.get_obs(), reward, self.is_game_over(), False, {}
