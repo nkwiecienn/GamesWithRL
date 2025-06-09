@@ -4,7 +4,7 @@
 * [Reinforcement Learning in Games](#reinforcement-learning-in-games)
   * [Introduction](#introduction)
     * [Sources:](#sources)
-  * [Discreet Environments](#discreet-environments)
+  * [discrete Environments](#discrete-environments)
   * [Continuous Environments](#continuous-environments)
   * [Multi-Agent Environments](#multi-agent-environments)
   * [Creating a Custom Environment](#creating-a-custom-environment)
@@ -40,11 +40,11 @@ maximize its cumulative reward, called **return**.
 
 The goal of this project is to introduce reinforcement learning concept and 
 help implement game environments using libraries such as 
-[Gymnasium](https://www.gymlibrary.dev/), 
+[Gymnasium](https://gymnasium.farama.org/), 
 [Stable-Baselines3](https://stable-baselines3.readthedocs.io/), 
 and [PettingZoo](https://pettingzoo.farama.org/).
 
-We'll start by discussing simple [**discrete environments**](#discreet-environments) using 
+We'll start by discussing simple [**discrete environments**](#discrete-environments) using 
 **Q-learning**, then move on to more complex [**continuous environments**](#continuous-environments) 
 that require advanced algorithms like **PPO** or **DDPG**. Next, we'll 
 explore [**multi-agent reinforcement learning**](#multi-agent-environments) (MARL), where multiple agents 
@@ -61,7 +61,16 @@ core concepts of reinforcement learning.
   New York, 2023.
 - https://spinningup.openai.com/en/latest/spinningup/rl_intro.html
 
-## Discreet Environments
+## Discrete Environments
+
+Discrete environments are a great starting point for learning reinforcement 
+learning. In these environments, both th set of possible states and the set 
+of actions are finite and countable.
+
+In this section, we'll explore how an agent can learn to make decisions in 
+such settings using **Q-learning**, a foundational algorithm in RL.
+
+[Open Notebook](01_discrete_environments.ipynb)
 
 ## Continuous Environments
 
