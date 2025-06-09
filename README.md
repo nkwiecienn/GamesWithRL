@@ -4,7 +4,7 @@
 * [Reinforcement Learning in Games](#reinforcement-learning-in-games)
   * [Introduction](#introduction)
     * [Sources:](#sources)
-  * [discrete Environments](#discrete-environments)
+  * [Discrete Environments](#discrete-environments)
   * [Continuous Environments](#continuous-environments)
   * [Multi-Agent Environments](#multi-agent-environments)
   * [Creating a Custom Environment](#creating-a-custom-environment)
@@ -56,15 +56,14 @@ core concepts of reinforcement learning.
 
 ### Sources:
 
-- D. L. Poole and A. K. Mackworth, Artificial Intelligence: Foundations
-  of Computational Agents, 3rd edition. Cambridge, United Kingdom;
-  New York, 2023.
+- [R. S. Sutton and A. G. Barto, Reinforcement Learning: An Introduction. 
+  Cambridge, Massachusetts, 2018.](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)
 - https://spinningup.openai.com/en/latest/spinningup/rl_intro.html
 
 ## Discrete Environments
 
 Discrete environments are a great starting point for learning reinforcement 
-learning. In these environments, both th set of possible states and the set 
+learning. In these environments, both the set of possible states and the set 
 of actions are finite and countable.
 
 In this section, we'll explore how an agent can learn to make decisions in 
@@ -73,6 +72,30 @@ such settings using **Q-learning**, a foundational algorithm in RL.
 [Open Notebook](01_discrete_environments.ipynb)
 
 ## Continuous Environments
+
+In this section, we explore reinforcement learning in environments with 
+**continuous state and/or action spaces**, where traditional table-based 
+approaches like Q-learning are no longer practical. In such settings, the 
+number of possible states or actions is infinite, making it impossible to 
+store values for every state–action pair in a lookup table.
+
+To overcome this, we turn to **function approximation techniques**, 
+particularly neural networks, which can estimate value functions or policies 
+across continuous domains. These networks allow agents to generalize from 
+experience and make decisions in complex, high-dimensional spaces.
+
+We introduce the
+[`stable-baselines3`](https://stable-baselines3.readthedocs.io/) library, 
+which provides high-quality implementations of modern RL 
+algorithms such as **PPO**, **DDPG**, and **SAC**—all well-suited for 
+continuous control tasks. You'll learn how to train agents, tune 
+hyperparameters, and evaluate performance in challenging environments like 
+`LunarLanderContinuous-v2`.
+
+This section serves as a practical guide for transitioning from discrete 
+environments to more realistic and nuanced RL applications.
+
+[Open Notebook](02_continous_environments.ipynb)
 
 ## Multi-Agent Environments
 
