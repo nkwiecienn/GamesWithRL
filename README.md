@@ -77,23 +77,15 @@ In this section, we explore reinforcement learning in environments with
 **continuous state and/or action spaces**, where traditional table-based 
 approaches like Q-learning are no longer practical. In such settings, the 
 number of possible states or actions is infinite, making it impossible to 
-store values for every state–action pair in a lookup table.
+store values for every state-action pair in a lookup table.
 
 To overcome this, we turn to **function approximation techniques**, 
 particularly neural networks, which can estimate value functions or policies 
-across continuous domains. These networks allow agents to generalize from 
-experience and make decisions in complex, high-dimensional spaces.
+across continuous domains.
 
 We introduce the
 [`stable-baselines3`](https://stable-baselines3.readthedocs.io/) library, 
-which provides high-quality implementations of modern RL 
-algorithms such as **PPO**, **DDPG**, and **SAC**—all well-suited for 
-continuous control tasks. You'll learn how to train agents, tune 
-hyperparameters, and evaluate performance in challenging environments like 
-`LunarLanderContinuous-v2`.
-
-This section serves as a practical guide for transitioning from discrete 
-environments to more realistic and nuanced RL applications.
+which provides implementations of RL algorithms.
 
 [Open Notebook](02_continous_environments.ipynb)
 
