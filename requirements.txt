@@ -1,8 +1,11 @@
 numpy==1.24.4
-matplotlib
+matplotlib~=3.9.4
 Pillow==8.3.2
-gymnasium[box2d]
+gymnasium[box2d]~=1.1.1
 pygame
 swig
 opencv-python==4.11.0.86
 ale-py
+optuna~=4.3.0
+pandas~=2.2.3
+stable-baselines3~=2.6.0
