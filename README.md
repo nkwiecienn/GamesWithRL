@@ -3,7 +3,6 @@
 <!-- TOC -->
 * [Reinforcement Learning in Games](#reinforcement-learning-in-games)
   * [Introduction](#introduction)
-    * [Sources:](#sources)
   * [Discrete Environments](#discrete-environments)
   * [Continuous Environments](#continuous-environments)
   * [Multi-Agent Environments](#multi-agent-environments)
@@ -54,12 +53,6 @@ how to [**build a custom environment**](#creating-a-custom-environment).
 We hope this project will serve as a clear and practical introduction to the 
 core concepts of reinforcement learning.
 
-### Sources:
-
-- [R. S. Sutton and A. G. Barto, Reinforcement Learning: An Introduction. 
-  Cambridge, Massachusetts, 2018.](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf)
-- https://spinningup.openai.com/en/latest/spinningup/rl_intro.html
-
 ## Discrete Environments
 
 Discrete environments are a great starting point for learning reinforcement 
@@ -91,6 +84,30 @@ which provides implementations of RL algorithms.
 
 ## Multi-Agent Environments
 
+In this section, we explore **multi-agent reinforcement learning (MARL)** 
+using the [PettingZoo](https://pettingzoo.farama.org/) library and train 
+agents with **Maskable PPO** from [Stable-Baselines3]
+(https://stable-baselines3.readthedocs.io/). We'll demonstrate how agents 
+can interact, compete, or cooperate within shared environments designed for 
+multiple participants.
+
+[Open Notebook](03_multiagent_environments.ipynb)
+
+In this bonus notebook, we explore a simple self-play setup where a **single 
+agent is trained against a previous version of itself**. This approach can 
+be useful for iterative training and evaluating learning progress over time. 
+We'll use PettingZoo environments and Maskable PPO to demonstrate this technique.
+
+[Open Notebook](03_bonus_single_agent_against_previous_agent.ipynb)
+
 ## Creating a Custom Environment
 
+In this section, we walk through the process of **creating a custom 
+reinforcement learning environment** compatible with the Gymnasium API. This 
+allows for full control over the environment's dynamics, observation/action 
+spaces, and reward structure, enabling experimentation and research.
+
+[Open Notebook](04_custom_environment.ipynb)
+
 ## Further Resources
+
